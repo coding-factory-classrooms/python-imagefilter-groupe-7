@@ -1,5 +1,5 @@
-from filters import gaussianblur , grayscale, dilate as filter
+from filters import gaussianblur , grayscale, dilate
 
-#filter.grayscale()
-#filter.grayscale()
-filter.dilate()
+gaussianblur.blur()
+#dilate.dilate()
+

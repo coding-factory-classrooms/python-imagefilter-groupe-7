@@ -1,9 +1,8 @@
 import cv2
 
-def blur():
-    try:
-        image = cv2.imread('data/img/imageTest.jpeg')
-        newImg = cv2.GaussianBlur(image, (5, 5), 5)
-        cv2.imwrite('data/output/newImage.jpeg', newImg)
-    except cv2.error as e:
-        print(e)
+def filter_blur(image):
+    # Applique un filtre de flou
+    image_blur = cv2.GaussianBlur(image, (5, 5), 5)
+    # retourne l'image avec le filtre
+    return image_blur
+

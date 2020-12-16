@@ -1,9 +1,7 @@
 import cv2
 
-def grayscale():
-    try:
-        image = cv2.imread('data/img/imageTest.jpeg')
-        newImg = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        cv2.imwrite('data/output/newImage.jpeg', newImg)
-    except cv2.error as e:
-        print(e)
+def filter_grayscale(image):
+    #  Applique un filtre Noir&Blanc sur l'image
+    image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    # retourne l'image avec le filtre
+    return image_gray

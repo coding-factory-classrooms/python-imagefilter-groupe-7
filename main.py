@@ -9,7 +9,6 @@ from filters import gaussianblur, grayscale, dilate
 args = sys.argv # Liste des arguments
 for i in range(0, len(args)):
     arg = args[i]
-    print(f'{arg}')
 
     if arg == '-h':
         print('HELP')
@@ -27,8 +26,6 @@ for i in range(0, len(args)):
             input_dir = path_input  # Chemin dossier 'input'
             files = os.listdir(input_dir)  # Retourne une liste de ce qui se trouve dans le dossier 'input'
 
-
-
         else:
             print('Chemin incorrect')
 
@@ -42,25 +39,20 @@ for i in range(0, len(args)):
 
                 filters = args[i + 1]
                 split_filters = filters.split("|")
-                print(split_filters)
                 for s in split_filters:
                     # Application des filtres
-                    print(s)
                     if 'blur' in s:
                         split_filter = s.split(":")
                         value = split_filter[1]
                         value_int = int(value)
                         image = gaussianblur.filter_blur(image,value_int)
-                        print('blur on')
                     if 'dilate' in s:
                         split_filter = s.split(":")
                         value = split_filter[1]
                         value_int = int(value)
                         image = dilate.filter_dilate(image, value_int)
-                        print('dilate on')
                     if 'grayscale' in s:
                         image = grayscale.filter_grayscale(image)
-                        print('grayscale on')
 
                 # Enregistrer l'image filtrée dans le dossier de sortie voulu
                 file_exit_path = f'{path_output}/{f}'

@@ -3,7 +3,7 @@ import cv2
 import os
 import logger
 
-from filters import gaussianblur, grayscale, dilate
+from filters import gaussianblur, grayscale, dilate, message
 import config
 
 args = sys.argv # Liste des arguments
@@ -18,7 +18,7 @@ for i in range(0, len(args)):
 
         # List filters (version du pauvre)
         if arg == '--list-filters':
-            print('List of supported filters\nblur\ndilate\ngrayscale')
+            print('List of supported filters\nblur\ndilate\ngrayscale\nmessage')
             sys.exit()
 
         #CONFIG INI
@@ -68,6 +68,10 @@ for i in range(0, len(args)):
                         image = dilate.filter_dilate(image, value_int)
                     if 'grayscale' in s:
                         image = grayscale.filter_grayscale(image)
+                    if 'message' in s:
+                        split_filter = s.split(":")
+                        msg = split_filter[1]
+                        image = message.filter_message(image,msg)
 
                 # Enregistrer l'image filtrée dans le dossier de sortie voulu
                 file_exit_path = f'{path_output}/{f}'

@@ -15,7 +15,7 @@ for i in range(0, len(args)):
         if arg == '-h':
             print('--help')
 
-        #
+        #CONFIG INI
         if arg == '--config-file':
             path_ini = args[i + 1]
             config.apply_config(path_ini)
@@ -67,12 +67,13 @@ for i in range(0, len(args)):
                 file_exit_path = f'{path_output}/{f}'
                 cv2.imwrite(file_exit_path, image)
                 logger.log_in_file(f'Save result image to image = ' + file_exit_path)
-                logger.print_log_in_console()
             except cv2.error as e:
                 print(e)
             except NameError as e:
                 print(e)
-            except FileNotFoundError as e:
-                print(e)
             except IndexError as e:
                 print(e)
+try:
+    logger.print_log_in_console()
+except FileNotFoundError as e:
+    print(e)

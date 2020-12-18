@@ -1,6 +1,11 @@
 from configparser import ConfigParser
 import os
 def apply_config(path_ini):
+    """
+
+    :param path_ini:
+
+    """
     file = path_ini
     config = ConfigParser()
     config.read(file)

@@ -1,2 +1,5 @@
+crefi==2.0.9
 numpy==1.19.4
 opencv-python==4.4.0.46
+pyCLI==2.0.3
+pyxattr==0.7.2

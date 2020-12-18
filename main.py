@@ -14,6 +14,12 @@ for i in range(0, len(args)):
         #HELP
         if arg == '-h':
             print('--help')
+            sys.exit()
+
+        # List filters (version du pauvre)
+        if arg == '--list-filters':
+            print('List of supported filters\nblur\ndilate\ngrayscale')
+            sys.exit()
 
         #CONFIG INI
         if arg == '--config-file':
